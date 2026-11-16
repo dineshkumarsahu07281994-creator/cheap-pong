@@ -1,0 +1,10 @@
+{
+  "name": "cheap-pong",
+  "private": true,
+  "type": "module",
+  "description": "Free serverless online Pong (static site + PeerJS/WebRTC)",
+  "scripts": {
+    "start": "python3 -m http.server 8000",
+    "test": "node --test test/game.test.mjs"
+  }
+}

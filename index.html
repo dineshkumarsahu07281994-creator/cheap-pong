@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CheapPong · free online Pong</title>
+  <meta name="description" content="Free online Pong against a random opponent. No accounts, no ads, no server.">
+  <link rel="stylesheet" href="style.css">
+  <!-- PeerJS: WebRTC data channels + the free public matchmaking broker (0.peerjs.com). -->
+  <script src="https://cdn.jsdelivr.net/npm/peerjs@1.5.5/dist/peerjs.min.js"></script>
+  <script src="config.js"></script>
+  <script type="module" src="js/app.js"></script>
+</head>
+<body>
+  <header class="top">
+    <h1><span class="logo" aria-hidden="true"></span> CheapPong</h1>
+    <p class="tag">Free online Pong. No accounts, no ads, no server.</p>
+  </header>
+
+  <main>
+    <section id="lobby" class="panel">
+      <label class="field">
+        <span>Your name</span>
+        <input id="name" maxlength="20" autocomplete="nickname" spellcheck="false">
+      </label>
+      <button id="play" class="primary" type="button">Play a random opponent</button>
+      <p class="hint">First to 7 points. You're paired with the next person who clicks Play.</p>
+      <p id="lobby-error" class="error" role="alert" hidden></p>
+    </section>
+
+    <section id="searching" class="panel" hidden>
+      <div class="spinner" aria-hidden="true"></div>
+      <p id="search-status" role="status">Looking for an opponent…</p>
+      <p id="search-time" class="hint"></p>
+      <button id="cancel" type="button">Cancel</button>
+    </section>
+
+    <section id="game" class="arena" hidden>
+      <div class="scorebar">
+        <span class="who"><span class="swatch me"></span><span id="me-name"></span></span>
+        <span class="score"><span id="me-score">0</span><span class="dash">:</span><span id="opp-score">0</span></span>
+        <span class="who opp"><span id="opp-name"></span><span class="swatch opp"></span></span>
+      </div>
+      <canvas id="court" aria-label="Pong court. Your paddle is the green one on the left."></canvas>
+      <div class="below">
+        <p id="status" class="status" role="status" aria-live="polite"></p>
+        <span id="ping" class="ping" title="Round-trip time to your opponent"></span>
+      </div>
+      <div class="actions">
+        <button id="rematch" type="button" class="primary" hidden>Rematch</button>
+        <button id="new-opp" type="button" hidden>New opponent</button>
+        <button id="leave" type="button">Leave</button>
+        <button id="mute" type="button">Sound: on</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    The game runs directly between the two browsers (WebRTC). Matchmaking uses the free public PeerJS broker.
+  </footer>
+</body>
+</html>
