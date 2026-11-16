@@ -24,6 +24,9 @@ opponent leaves mid-match you win by forfeit.
 
 Controls: mouse or finger on the court, or ↑ ↓ / W S.
 
+Diagrams of the system, matchmaking, the in-game message loop and the code layout are in
+[docs/architecture.md](docs/architecture.md).
+
 ## Files
 
 ```
@@ -34,6 +37,7 @@ js/app.js      lobby, host loop, guest prediction, input, UI
 js/render.js   canvas drawing
 js/sound.js    Web Audio blips (mute button in game)
 test/          physics tests and a two-player test harness
+docs/          architecture diagrams (Mermaid, rendered by GitHub)
 ```
 
 ## Run it locally
